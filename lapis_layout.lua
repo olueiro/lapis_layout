@@ -222,15 +222,15 @@ local function lapis_layout(options)
   
   if io.type(options.output) == "file" then
     options.output:write(moon_output)
-    options.output:close()
+    assert(options.output:close())
   elseif type(options.output) == "string" then
-    local handle = io.open(options.output, "wb")
-    if string.find(string.lower(options.output), "%.lua$") then
+    local handle = assert(io.open(options.output, "wb"))
+    if string.match(string.lower(options.output), "%.lua$") then
       handle:write(lua_output)
     else
       handle:write(moon_output)
     end
-    handle:close()
+    assert(handle:close())
   end
 
   return moon_output, lua_output
@@ -255,7 +255,7 @@ if input and output then
   if output == "moon" or output == "moonscript" or output == "-" then
     io.write(moon_output)
   elseif output == "lua" then
-    io.stdout:write(lua_output)
+    io.write(lua_output)
   elseif string.match(string.lower(output), "%.lua$") then
     local file = assert(io.open(output, "w"))
     file:write(lua_output)
