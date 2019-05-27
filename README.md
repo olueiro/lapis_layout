@@ -1,6 +1,46 @@
 # lapis_layout
 Converts HTML files to Lapis webframework layouts
 
+## WTF is this?
+
+[Lapis webframework](https://leafo.net/lapis/) has a cool [HTML generation](https://leafo.net/lapis/reference/html_generation.html) tool. This module help you to converts HTML files (from templates, etc) to Lapis layout format (using MoonScript or Lua).
+
+### Sample:
+
+This HTML:
+```html
+<!DOCTYPE HTML><html lang="en"><head><title></title></head><body>Hello<span class="a b c">World</span>!</body></html>
+```
+converts to this MoonScript file:
+```moonscript
+raw "<!DOCTYPE HTML>"
+html lang: "en", ->
+  head ->
+    title!
+  body ->
+    raw "Hello"
+    span class: "a b c", "World"
+    raw "!"
+```
+or this Lua file:
+```lua
+raw("<!DOCTYPE HTML>")
+html({
+  lang = "en"
+}, function()
+  head(function()
+    title()
+  end)
+  body(function()
+    raw("Hello")
+    span({
+      class = "a b c"
+    }, "World")
+    raw("!")
+  end)
+end)
+```
+
 ## How to install
 
 ```
@@ -71,9 +111,15 @@ print "MoonScript result:\n", moon_output
 print "Lua result:\n", lua_output
 ```
 
+## TODO (: PRs :)
+
+ - **Test files**
+ - **Fix English typos**
+ - **New samples**
+
 ## Known Issues
 
-**inline JS comments:** workaround: remove all them or remove script from source and add to a `.js` file :)
+ - **inline JS comments:** workaround: remove all them or remove script from source and add to a `.js` file :)
 
 ## License
 
