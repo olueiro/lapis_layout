@@ -3,7 +3,7 @@ Converts HTML files to Lapis webframework layouts
 
 ## WTF is this?
 
-[Lapis webframework](https://leafo.net/lapis/) has a cool [HTML generation](https://leafo.net/lapis/reference/html_generation.html) tool. This module help you to converts HTML files (from templates, etc) to Lapis layout format (supports MoonScript or Lua).
+[Lapis webframework](https://leafo.net/lapis/) has a cool [HTML generation](https://leafo.net/lapis/reference/html_generation.html) tool. This module helps you to converts HTML files (from templates, etc) to Lapis layout format (supports MoonScript or Lua).
 
 ### Sample:
 
