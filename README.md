@@ -39,19 +39,36 @@ lapis_layout.lua file.html file.lua
 local lapis_layout = require("lapis_layout")
 
 local moon_output, lua_output = lapis_layout({
-  input = io.open("input.htm"),
-  output = "output.lua",      -- optional
-  tab = "  "                  -- optional
+  input     = io.open("input.htm"),
+  
+  output    = "output.lua",             -- optional, save output to file (Lua layout format)
+  -- output = "output.moon",            -- optional, save output to file (MoonScript layout format)
+  -- output = io.open("output", "w"),   -- optional, save output to file (MoonScript layout format)
+  
+  tab       = "  "                      -- optional, use this value as indention
 })
 
-print("MoonScript result\n", moon_output)
-print("Lua result\n", lua_output)
+print("MoonScript result:\n", moon_output)
+print("Lua result:\n", lua_output)
 ```
 
 ### Using MoonScript
 
 ```moonscript
+lapis_layout = require "lapis_layout"
 
+moon_output, lua_output = lapis_layout {
+  input: io.open "input.htm"
+  
+  output: "output.lua"                -- optional, save output to file (Lua layout format)
+  -- output: "output.moon"            -- optional, save output to file (MoonScript layout format)
+  -- output: io.open "output", "w"    -- optional, save output to file (MoonScript layout format)
+  
+  tab: "  "                           -- optional, use this value as indention
+}
+
+print "MoonScript result:\n", moon_output
+print "Lua result:\n", lua_output
 ```
 
 ## Known Issues
