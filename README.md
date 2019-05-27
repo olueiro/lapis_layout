@@ -120,8 +120,9 @@ print "Lua result:\n", lua_output
  - **Fix typos**
  - **New samples**
  - **New features:**
+     - raw or text mode
      - widgets management?
-     - online convert tool
+     - online convert tool?
 
 ## Known Issues
 
