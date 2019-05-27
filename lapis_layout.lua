@@ -1,5 +1,5 @@
 -- © 2018 <github.com/olueiro> MIT licensed
--- known issues: js inline comments; workaround: remove them all or remove script from source and add to a .js file :)
+-- known issues: js inline comments; workaround: remove all them or remove script from source and add to a .js file :)
 
 local scanner = require("web_sanitize.query.scan_html") -- luarocks install web_sanitize
 
@@ -217,8 +217,23 @@ local function lapis_layout(options)
     end
     return literal, table.concat(moon_result, "\n"), table.concat(lua_result, "\n")
   end
+  
+  local moon_output, lua_output = select(2, level(nodes))
+  
+  if io.type(options.output) == "file" then
+    options.output:write(moon_output)
+    options.output:close()
+  elseif type(options.output) == "string" then
+    local handle = io.open(options.output, "wb")
+    if string.find(string.lower(options.output), "%.lua$") then
+      handle:write(lua_output)
+    else
+      handle:write(moon_output)
+    end
+    handle:close()
+  end
 
-  return select(2, level(nodes))
+  return moon_output, lua_output
 
 end
 
