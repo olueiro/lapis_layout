@@ -3,7 +3,7 @@ Converts HTML files to Lapis webframework layouts
 
 ## WTF is this?
 
-[Lapis webframework](https://leafo.net/lapis/) has a cool [HTML generation](https://leafo.net/lapis/reference/html_generation.html) tool. This module help you to converts HTML files (from templates, etc) to Lapis layout format (using MoonScript or Lua).
+[Lapis webframework](https://leafo.net/lapis/) has a cool [HTML generation](https://leafo.net/lapis/reference/html_generation.html) tool. This module help you to converts HTML files (from templates, etc) to Lapis layout format (supports MoonScript or Lua).
 
 ### Sample:
 
@@ -73,7 +73,7 @@ read content from file and outputs to a new file **(Lua layout format)**
 lapis_layout.lua file.html file.lua
 ```
 
-### Lua samples
+### Lua sample
 
 ```lua
 local lapis_layout = require("lapis_layout")
@@ -92,7 +92,7 @@ print("MoonScript result:\n", moon_output)
 print("Lua result:\n", lua_output)
 ```
 
-### MoonScript samples
+### MoonScript sample
 
 ```moonscript
 lapis_layout = require "lapis_layout"
@@ -114,14 +114,14 @@ print "Lua result:\n", lua_output
 ## TODO (: PRs :)
 
  - **Test files**
- - **Fix English typos**
+ - **Fix typos**
  - **New samples**
 
 ## Known Issues
 
  - **inline JS comments:** workaround: remove all them or remove script from source and add to a `.js` file :)
 
-## License
+## License (MIT)
 
 ```
 MIT License
