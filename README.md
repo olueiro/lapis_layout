@@ -11,7 +11,7 @@ This HTML:
 ```html
 <!DOCTYPE HTML><html lang="en"><head><title></title></head><body>Hello<span class="a b c">World</span>!</body></html>
 ```
-converts to this MoonScript file:
+converts to this **MoonScript** file:
 ```moonscript
 raw "<!DOCTYPE HTML>"
 html lang: "en", ->
@@ -22,7 +22,7 @@ html lang: "en", ->
     span class: "a b c", "World"
     raw "!"
 ```
-or this Lua file:
+or this **Lua** file:
 ```lua
 raw("<!DOCTYPE HTML>")
 html({
@@ -80,12 +80,13 @@ local lapis_layout = require("lapis_layout")
 
 local moon_output, lua_output = lapis_layout({
   input     = io.open("input.htm"),
+  -- input  = "<html></html>",
   
-  output    = "output.lua",             -- optional, save output to file (Lua layout format)
-  -- output = "output.moon",            -- optional, save output to file (MoonScript layout format)
-  -- output = io.open("output", "w"),   -- optional, save output to file (MoonScript layout format)
+  output    = "output.lua",             -- (optional) save output to file (Lua layout format)
+  -- output = "output.moon",            -- (optional) save output to file (MoonScript layout format)
+  -- output = io.open("output", "w"),   -- (optional) save output to file (MoonScript layout format)
   
-  tab       = "  "                      -- optional, use this value as indention
+  tab       = "  "                      -- (optional) use this value as indention
 })
 
 print("MoonScript result:\n", moon_output)
@@ -99,12 +100,13 @@ lapis_layout = require "lapis_layout"
 
 moon_output, lua_output = lapis_layout {
   input: io.open "input.htm"
+  -- input: "<html></html>"
   
-  output: "output.lua"                -- optional, save output to file (Lua layout format)
-  -- output: "output.moon"            -- optional, save output to file (MoonScript layout format)
-  -- output: io.open "output", "w"    -- optional, save output to file (MoonScript layout format)
+  output: "output.lua"                -- (optional) save output to file (Lua layout format)
+  -- output: "output.moon"            -- (optional) save output to file (MoonScript layout format)
+  -- output: io.open "output", "w"    -- (optional) save output to file (MoonScript layout format)
   
-  tab: "  "                           -- optional, use this value as indention
+  tab: "  "                           -- (optional) use this value as indention
 }
 
 print "MoonScript result:\n", moon_output
@@ -113,9 +115,11 @@ print "Lua result:\n", lua_output
 
 ## TODO (: PRs :)
 
+ - **Fix bugs**
  - **Test files**
  - **Fix typos**
  - **New samples**
+ - **New features**
 
 ## Known Issues
 
