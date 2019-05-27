@@ -113,17 +113,20 @@ print "MoonScript result:\n", moon_output
 print "Lua result:\n", lua_output
 ```
 
-## TODO (: PRs :)
+## TODO (help wanted)
 
  - **Fix bugs**
  - **Test files**
  - **Fix typos**
  - **New samples**
- - **New features**
+ - **New features:**
+     - widgets management?
+     - online convert tool
 
 ## Known Issues
 
- - **inline JS comments:** workaround: remove all them or remove script from source and add to a `.js` file :)
+ - **Inline JS comments:**
+     - workaround: remove all them or remove script from source and add to a `.js` file :)
 
 ## License (MIT)
 
