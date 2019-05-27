@@ -11,7 +11,7 @@ This HTML:
 ```html
 <!DOCTYPE HTML><html lang="en"><head><title></title></head><body>Hello<span class="a b c">World</span>!</body></html>
 ```
-converts to this **MoonScript** file:
+converts to this **MoonScript** string:
 ```moonscript
 raw "<!DOCTYPE HTML>"
 html lang: "en", ->
@@ -22,7 +22,7 @@ html lang: "en", ->
     span class: "a b c", "World"
     raw "!"
 ```
-or this **Lua** file:
+or this **Lua** string:
 ```lua
 raw("<!DOCTYPE HTML>")
 html({
