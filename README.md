@@ -121,7 +121,7 @@ print "Lua result:\n", lua_output
  - **New samples**
  - **New features:**
      - raw or text mode
-     - widgets management?
+     - [widgets](https://leafo.net/lapis/reference/html_generation.html#html-widgets) management?
      - online convert tool?
 
 ## Known Issues
