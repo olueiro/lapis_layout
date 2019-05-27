@@ -1,5 +1,5 @@
 -- © 2018 <github.com/olueiro> MIT licensed
--- known issues: js inline comments; workaround: remove all them or remove script from source and add to a .js file :)
+-- known issues: js inline comments; workaround: remove them all or remove script from source and add to a .js file :)
 
 local scanner = require("web_sanitize.query.scan_html") -- luarocks install web_sanitize
 
