@@ -2,6 +2,20 @@
 -- known issues: js inline comments; workaround: remove all them or remove script from source and add to a .js file :)
 
 local scanner = require("web_sanitize.query.scan_html") -- luarocks install web_sanitize
+local patterns = require("web_sanitize.patterns")
+local data = require("web_sanitize.data")
+
+local escape_html_text = patterns.escape_html_text
+local unescape_html_text = patterns.unescape_html_text
+local void_tags = data.void_tags
+local raw_text_tags = data.raw_text_tags
+
+for index = 1, #void_tags do
+  void_tags[void_tags[index]] = true
+end
+for index = 1, #raw_text_tags do
+  raw_text_tags[raw_text_tags[index]] = true
+end
 
 local function lapis_layout(options)
   
@@ -35,13 +49,18 @@ local function lapis_layout(options)
           current = current[num]
         else
           if node.type == "text_node" then
-            table.insert(current, node:inner_text())
+            current[#current + 1] = escape_html_text:match(node:inner_text())
           else
             current[num] = {
               tag = node.tag,
-              attr = node.attr
+              attr = node.attr,
+              pos = node.pos,
+              self_closing = node.self_closing and true or void_tags[tag]
             }
             current = current[num]
+            if raw_text_tags[node.tag] then
+              current[#current + 1] = node:inner_text()
+            end 
           end
         end
       end
@@ -103,7 +122,7 @@ local function lapis_layout(options)
     ["true"] = true,
     ["until"] = true,
     ["while"] = true,
-    ["undef"] = true, -- Lua 5.4?
+    -- ["undef"] = true, -- Lua 5.4?
   }
   
   local moon_keywords = {
